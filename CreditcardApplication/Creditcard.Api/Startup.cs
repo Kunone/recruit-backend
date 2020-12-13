@@ -1,3 +1,5 @@
+using Creditcard.Repository;
+using Creditcard.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,7 +28,8 @@ namespace Creditcard.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddTransient<ICreditcardRepository, CreditcardRepository>();
+            services.AddTransient<ICreditcardService, CreditcardService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

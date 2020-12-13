@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Creditcard.DataContract
 {
-    public class Creditcard
+    public class Card
     {
         public Guid Id { get; set; }
         public Guid UserId { get; set; }

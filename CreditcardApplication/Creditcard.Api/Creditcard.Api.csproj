@@ -10,4 +10,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Creditcard.DataContract\Creditcard.DataContract.csproj" />
+    <ProjectReference Include="..\Creditcard.Repository\Creditcard.Repository.csproj" />
+    <ProjectReference Include="..\Creditcard.Service\Creditcard.Service.csproj" />
+  </ItemGroup>
+
 </Project>

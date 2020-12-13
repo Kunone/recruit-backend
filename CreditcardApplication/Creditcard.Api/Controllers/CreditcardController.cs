@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Creditcard.Service;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +11,19 @@ namespace Creditcard.Api.Controllers
     [Route("api/credit-cards")]
     public class CreditcardController : ControllerBase
     {
-        public CreditcardController()
-        {
+        private readonly ICreditcardService _creditcardService;
 
+        public CreditcardController(ICreditcardService creditcardService)
+        {
+            _creditcardService = creditcardService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok("hello world");
+            var userId = Guid.NewGuid().ToString();
+            var result = await _creditcardService.GetAllCards(userId);
+            return Ok(result);
         }
     }
 }
