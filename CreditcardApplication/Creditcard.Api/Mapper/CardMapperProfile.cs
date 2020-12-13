@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Creditcard.Api.Helps;
 using Creditcard.DataContract;
 
 namespace Creditcard.Api.Mapper
@@ -10,8 +11,26 @@ namespace Creditcard.Api.Mapper
             SourceMemberNamingConvention = new ExactMatchNamingConvention();
             DestinationMemberNamingConvention = new ExactMatchNamingConvention();
 
-            CreateMap<CardViewModel, Card>();
-            CreateMap<Card, CardViewModel>();
+            CreateMap<CardViewModel, Card>()
+                .ForMember(card => card.CardNumber, opt => opt.ConvertUsing<DateEncryptoFormatter, string>()); ;
+            CreateMap<Card, CardViewModel>()
+                .ForMember(card => card.CardNumber, opt => opt.ConvertUsing<DateDecrypFormatter, string>());
+        }
+
+        public class DateEncryptoFormatter : IValueConverter<string, string>
+        {
+            public string Convert(string source, ResolutionContext context)
+            {
+                return SymetricEncryptionHelper.Encrypt(source);
+            }
+        }
+
+        public class DateDecrypFormatter : IValueConverter<string, string>
+        {
+            public string Convert(string source, ResolutionContext context)
+            {
+                return SymetricEncryptionHelper.Decrypt(source);
+            }
         }
     }
 }
