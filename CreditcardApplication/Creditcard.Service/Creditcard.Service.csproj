@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Creditcard.DataContract\Creditcard.DataContract.csproj" />
     <ProjectReference Include="..\Creditcard.Repository\Creditcard.Repository.csproj" />
   </ItemGroup>

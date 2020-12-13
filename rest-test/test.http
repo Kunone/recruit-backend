@@ -1,13 +1,27 @@
-###
-GET https://localhost:44374/api/credit-cards
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlcm5hbWUiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkFFRURFMUU5LTM4QTQtNDk2Ri1CMjEzLTRGRTNCNTFFOUNFMyIsIm5iZiI6IjE2MDc4MzE4OTYiLCJleHAiOiIxNjA3ODM5MDk2In0.Z897W-8hZvwvVogvvUej2v2SXp9cWyatpbuGknNiDeo
 
-###
+
+### get all cards
+GET https://localhost:44374/api/credit-cards
+Authorization: bearer {{token}}
+
+### save card
 POST https://localhost:44374/api/credit-cards
 Content-Type: application/json
+Authorization: bearer {{token}}
 
 {
   "name": "kun wang",
   "cardNumber": "0234123412341111",
   "cvc": "021",
   "expiryDate": "2020-12-20"
+}
+
+### get token
+POST https://localhost:44374/api/token
+Content-Type: application/json
+
+{
+  "username": "username",
+  "password": "password"
 }

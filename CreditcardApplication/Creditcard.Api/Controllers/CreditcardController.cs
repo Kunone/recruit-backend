@@ -1,5 +1,6 @@
 ﻿using Creditcard.DataContract;
 using Creditcard.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace Creditcard.Api.Controllers
 {
     [ApiController]
     [Route("api/credit-cards")]
+    [Authorize]
     public class CreditcardController : ControllerBase
     {
         private readonly ICreditcardService _creditcardService;
