@@ -1,3 +1,5 @@
+using AutoMapper;
+using Creditcard.Api.Mapper;
 using Creditcard.Repository;
 using Creditcard.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -34,6 +36,8 @@ namespace Creditcard.Api
             services.AddTransient<ICreditcardRepository, CreditcardRepository>();
             services.AddTransient<ICreditcardService, CreditcardService>();
             services.AddTransient<ITokenService, TokenService>();
+
+            services.AddAutoMapper(typeof(CardMapperProfile));
 
             services.AddAuthentication(x =>
             {

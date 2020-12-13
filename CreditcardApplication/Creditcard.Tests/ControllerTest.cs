@@ -15,11 +15,7 @@ namespace Creditcard.Tests
         [Fact]
         public async void Post_Card_Model_State()
         {
-            var controller = new ControllerBase()
-            TryValidateModel(new CardViewModel()
-            {
-
-            })
+ 
         }
     }
 }

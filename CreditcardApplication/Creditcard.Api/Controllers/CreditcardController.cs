@@ -1,4 +1,5 @@
-﻿using Creditcard.DataContract;
+﻿using AutoMapper;
+using Creditcard.DataContract;
 using Creditcard.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,19 +13,21 @@ namespace Creditcard.Api.Controllers
     [ApiController]
     [Route("api/credit-cards")]
     [Authorize]
-    public class CreditcardController : ControllerBase
+    public class CreditcardController : ApiController
     {
         private readonly ICreditcardService _creditcardService;
+        private readonly IMapper _mapper;
 
-        public CreditcardController(ICreditcardService creditcardService)
+        public CreditcardController(ICreditcardService creditcardService, IMapper mapper)
         {
             _creditcardService = creditcardService;
+            _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var userId = Guid.NewGuid().ToString();
+            var userId = GetUserId();
             var result = await _creditcardService.GetAllCards(userId);
             return Ok(result);
         }
@@ -37,7 +40,11 @@ namespace Creditcard.Api.Controllers
                 return BadRequest(ModelState);
             }
 
-            return Ok(true);
+            var userId = GetUserId();
+            var card = _mapper.Map<Card>(cardViewModel);
+            card.UserId = new Guid(userId);
+
+            return Ok(card);
         }
     }
 }
