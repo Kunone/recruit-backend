@@ -15,6 +15,46 @@ namespace Creditcard.Tests
     public class CreditcardServiceTest
     {
         [Fact]
+        public async Task GetAllCards_Valid()
+        {
+            using (var mock = AutoMock.GetLoose())
+            {
+                // 1. arrange
+                var userId = Guid.NewGuid().ToString();
+                List<Card> cards = new List<Card>()
+                {
+                    new Card()
+                    {
+                        CardNumber = "m5EUbDvUbksT9LYW1v8AOyL0X2IIPQqDfI1ZfFTiJuQ=",
+                        CVC = "mhS2tPsAk1GysMZtXBXhaQ==",
+                        Name = "Kun Wang",
+                        ExpiryDate = DateTime.Now.AddDays(10)
+                    }
+                };
+
+                // 2. mock
+                mock.Mock<ICreditcardRepository>()
+                    .Setup(c => c.GetCards(userId))
+                    .ReturnsAsync(cards);
+                var cardService = mock.Create<CreditcardService>();
+
+                // 3. action
+                var results = await cardService.GetAllCards(userId);
+
+                // 4. assert
+                Assert.True(results.Any());
+                Assert.Single(results);
+
+                var resultCard = results.ToList().FirstOrDefault();
+
+                Assert.Equal(cards[0].CardNumber, resultCard.CardNumber);
+                Assert.Equal(cards[0].CVC, resultCard.CVC);
+                Assert.Equal(cards[0].Name, resultCard.Name);
+                Assert.Equal(cards[0].ExpiryDate, resultCard.ExpiryDate);
+            }
+        }
+
+        [Fact]
         public void GetAllCards_ThrowEception()
         {
             using(var mock = AutoMock.GetLoose())
