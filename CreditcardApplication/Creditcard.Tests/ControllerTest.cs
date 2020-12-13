@@ -13,7 +13,7 @@ namespace Creditcard.Tests
     public class ControllerTest
     {
         [Fact]
-        public async void Post_Card_Model_State()
+        public void Post_Card_Model_State()
         {
  
         }
