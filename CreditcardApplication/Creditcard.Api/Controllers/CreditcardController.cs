@@ -1,4 +1,5 @@
-﻿using Creditcard.Service;
+﻿using Creditcard.DataContract;
+using Creditcard.Service;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,17 @@ namespace Creditcard.Api.Controllers
             var userId = Guid.NewGuid().ToString();
             var result = await _creditcardService.GetAllCards(userId);
             return Ok(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SaveCard([FromBody] CardViewModel cardViewModel)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return BadRequest(ModelState);
+            }
+
+            return Ok(true);
         }
     }
 }

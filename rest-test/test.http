@@ -1,2 +1,13 @@
 ###
 GET https://localhost:44374/api/credit-cards
+
+###
+POST https://localhost:44374/api/credit-cards
+Content-Type: application/json
+
+{
+  "name": "kun wang",
+  "cardNumber": "0234123412341111",
+  "cvc": "021",
+  "expiryDate": "2020-12-20"
+}
