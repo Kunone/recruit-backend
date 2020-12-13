@@ -24,6 +24,16 @@ namespace Creditcard.Api.Controllers
             _mapper = mapper;
         }
 
+        [Route("{cardId}")]
+        [HttpGet]
+        public async Task<IActionResult> Get(string cardId)
+        {
+            var userId = GetUserId();
+            var card = await _creditcardService.GetCard(userId, cardId);
+            var view = _mapper.Map<CardViewModel>(card);
+            return Ok(view);
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

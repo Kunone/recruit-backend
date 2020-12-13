@@ -16,6 +16,20 @@ namespace Creditcard.Repository
             _connString = config.GetConnectionString("Default");
         }
 
+        public async Task<Card> GetCard(string userId, string cardId)
+        {
+            var sql = @"SELECT TOP 1
+                          [Name]
+                          ,[CardNumber]
+                          ,[CVC]
+                          ,[ExpiryDate]
+                      FROM [Customer].[Card]
+                      WHERE UserId=@userId and Id=@cardId";
+            using var connection = new SqlConnection(_connString);
+            var card = await connection.QueryFirstAsync<Card>(sql, new { userId, cardId });
+            return card;
+        }
+
         public async Task<IEnumerable<Card>> GetCards(string userId)
         {
             var sql = @"SELECT 
