@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Creditcard.Api", "Creditcar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Creditcard.DataContract", "Creditcard.DataContract\Creditcard.DataContract.csproj", "{23F584AF-EE2D-421E-9D80-0974B72BF12C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Creditcard.Repository", "Creditcard.Repository\Creditcard.Repository.csproj", "{282170A7-632A-45F9-A927-C633718CFC7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{23F584AF-EE2D-421E-9D80-0974B72BF12C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23F584AF-EE2D-421E-9D80-0974B72BF12C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23F584AF-EE2D-421E-9D80-0974B72BF12C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{282170A7-632A-45F9-A927-C633718CFC7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{282170A7-632A-45F9-A927-C633718CFC7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{282170A7-632A-45F9-A927-C633718CFC7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{282170A7-632A-45F9-A927-C633718CFC7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
