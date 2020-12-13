@@ -27,5 +27,11 @@ namespace Creditcard.Service
             var cards = await _creditcardRepository.GetCards(userId);
             return cards;
         }
+
+        public async Task SaveCard(string userId, Card card)
+        {
+            card.UserId = new Guid(userId);
+            await _creditcardRepository.SaveCard(card);
+        }
     }
 }

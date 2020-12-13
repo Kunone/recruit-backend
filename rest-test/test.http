@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlcm5hbWUiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkFFRURFMUU5LTM4QTQtNDk2Ri1CMjEzLTRGRTNCNTFFOUNFMyIsIm5iZiI6IjE2MDc4MzE4OTYiLCJleHAiOiIxNjA3ODM5MDk2In0.Z897W-8hZvwvVogvvUej2v2SXp9cWyatpbuGknNiDeo
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlcm5hbWUiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkFFRURFMUU5LTM4QTQtNDk2Ri1CMjEzLTRGRTNCNTFFOUNFMyIsIm5iZiI6IjE2MDc4NDM4MjIiLCJleHAiOiIxNjA3ODUxMDIyIn0.tWbgRXpWLv3OOUF4U6kazvD64c3jx0-4oja3dHmk7wo
 
 
 ### get all cards
@@ -14,7 +14,7 @@ Authorization: bearer {{token}}
   "name": "kun wang",
   "cardNumber": "0234123412341111",
   "cvc": "021",
-  "expiryDate": "2020-12-20"
+  "expiryDate": "2020-12-21"
 }
 
 ### get token

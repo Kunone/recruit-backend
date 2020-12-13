@@ -7,5 +7,6 @@ namespace Creditcard.Repository
     public interface ICreditcardRepository
     {
         Task<IEnumerable<Card>> GetCards(string userId);
+        Task SaveCard(Card card);
     }
 }

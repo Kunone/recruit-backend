@@ -23,3 +23,6 @@ create TABLE Customer.Card
 	ExpiryDate DATE NOT NULL
 );
 Go
+
+ALTER TABLE Customer.Card
+Add CreatedAt DateTime not null default SYSUTCDATETIME()

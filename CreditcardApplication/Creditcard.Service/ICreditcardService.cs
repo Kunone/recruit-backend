@@ -7,5 +7,6 @@ namespace Creditcard.Service
     public interface ICreditcardService
     {
         Task<IEnumerable<Card>> GetAllCards(string userId);
+        Task SaveCard(string userId, Card card);
     }
 }

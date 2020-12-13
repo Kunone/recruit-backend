@@ -29,5 +29,25 @@ namespace Creditcard.Repository
             var cards = await connection.QueryAsync<Card>(sql, new { userId });
             return cards;
         }
+
+        public async Task SaveCard(Card card)
+        {
+            var sql = @"INSERT INTO [Customer].[Card]
+                               ([UserId]
+                               ,[Name]
+                               ,[CardNumber]
+                               ,[CVC]
+                               ,[ExpiryDate])
+                         VALUES
+                               (@UserId
+                               ,@Name
+                               ,@CardNumber
+                               ,@CVC
+                               ,@ExpiryDate)";
+            using var connection = new SqlConnection(_connString);
+            await connection.ExecuteAsync(sql, card);
+
+
+        }
     }
 }

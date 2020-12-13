@@ -28,8 +28,13 @@ namespace Creditcard.Api.Controllers
         public async Task<IActionResult> GetAll()
         {
             var userId = GetUserId();
-            var result = await _creditcardService.GetAllCards(userId);
-            return Ok(result);
+            var cards = await _creditcardService.GetAllCards(userId);
+            List<CardViewModel> views = new List<CardViewModel>();
+            foreach (var card in cards)
+            {
+                views.Add(_mapper.Map<CardViewModel>(card));
+            }
+            return Ok(views);
         }
 
         [HttpPost]
@@ -42,9 +47,10 @@ namespace Creditcard.Api.Controllers
 
             var userId = GetUserId();
             var card = _mapper.Map<Card>(cardViewModel);
-            card.UserId = new Guid(userId);
 
-            return Ok(card);
+            await _creditcardService.SaveCard(userId, card);
+
+            return Ok(true);
         }
     }
 }

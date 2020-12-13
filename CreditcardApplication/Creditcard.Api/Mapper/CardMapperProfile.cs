@@ -12,11 +12,11 @@ namespace Creditcard.Api.Mapper
             DestinationMemberNamingConvention = new ExactMatchNamingConvention();
 
             CreateMap<CardViewModel, Card>()
-                .ForMember(card => card.CardNumber, opt => opt.ConvertUsing<DateEncryptoFormatter, string>())
-                .ForMember(card => card.CVC, opt => opt.ConvertUsing<DateEncryptoFormatter, string>());
+                .ForMember(card => card.CVC, opt => opt.ConvertUsing<DateEncryptoFormatter, string>())
+                .ForMember(card => card.CardNumber, opt => opt.ConvertUsing<DateEncryptoFormatter, string>());
             CreateMap<Card, CardViewModel>()
-                .ForMember(card => card.CardNumber, opt => opt.ConvertUsing<DateDecrypFormatter, string>())
-                .ForMember(card => card.CVC, opt => opt.ConvertUsing<DateDecrypFormatter, string>());
+                .ForMember(card => card.CVC, opt => opt.ConvertUsing<DateDecrypFormatter, string>())
+                .ForMember(card => card.CardNumber, opt => opt.ConvertUsing<DateDecrypFormatter, string>());
         }
 
         public class DateEncryptoFormatter : IValueConverter<string, string>
