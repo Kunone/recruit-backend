@@ -1,15 +1,15 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlcm5hbWUiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkFFRURFMUU5LTM4QTQtNDk2Ri1CMjEzLTRGRTNCNTFFOUNFMyIsIm5iZiI6IjE2MDc4NDM4MjIiLCJleHAiOiIxNjA3ODUxMDIyIn0.tWbgRXpWLv3OOUF4U6kazvD64c3jx0-4oja3dHmk7wo
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlcm5hbWUiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkFFRURFMUU5LTM4QTQtNDk2Ri1CMjEzLTRGRTNCNTFFOUNFMyIsIm5iZiI6IjE2MDc5MzMzMDciLCJleHAiOiIxNjA3OTQwNTA3In0.Px6FBMkxFmEeTMVBIHeDEtNmtU8UAkeRPc2Pv_b5Cn0
 
 ### get one card
-GET https://localhost:44374/api/credit-cards/EE6B634F-9168-4683-9456-7F4B40C67EA5
+GET https://localhost:5001/api/credit-cards/EE6B634F-9168-4683-9456-7F4B40C67EA5
 Authorization: bearer {{token}}
 
 ### get all cards
-GET https://localhost:44374/api/credit-cards
+GET https://localhost:5001/api/credit-cards
 Authorization: bearer {{token}}
 
 ### save card
-POST https://localhost:44374/api/credit-cards
+POST https://localhost:5001/api/credit-cards
 Content-Type: application/json
 Authorization: bearer {{token}}
 
@@ -21,7 +21,7 @@ Authorization: bearer {{token}}
 }
 
 ### get token
-POST https://localhost:44374/api/token
+POST https://localhost:5001/api/token
 Content-Type: application/json
 
 {
