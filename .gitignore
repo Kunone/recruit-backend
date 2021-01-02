@@ -251,10 +251,18 @@ UpgradeLog*.htm
 ServiceFabricBackup/
 *.rptproj.bak
 
-# SQL Server files
-*.mdf
-*.ldf
-*.ndf
+# SQL Server System files
+# *.mdf
+# *.ldf
+# *.ndf
+master.mdf
+mastlog.ldf
+model.mdf
+modellog.ldf
+msdbdata.mdf
+msdblog.ldf
+tempdb.mdf
+templog.ldf
 
 # Business Intelligence projects
 *.rdl.data

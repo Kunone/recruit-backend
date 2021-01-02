@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  ms-sql-server:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Pa55w0rd2020"
+      MSSQL_PID: Express
+    volumes:
+      - ./SQL/data:/var/opt/mssql/data
+    ports:
+      - "5433:1433"
+
+  card-api:
+    build:
+      context: CreditcardApplication/
+      dockerfile: CreditcardApi/Dockerfile
+    ports:
+      - "8080:80"
+
+    # - "8001:443"
+      # environment:
+    #   ASPNETCORE_URLS: "https://+;http://+"
+    #   ASPNETCORE_HTTPS_PORT: "8001"
+    #   ASPNETCORE_ENVIRONMENT: Development
+    # volumes:
+    #   - ${APPDATA}\microsoft\UserSecrets\:/root/.microsoft/usersecrets
+    #   - ${USERPROFILE}\.aspnet\https:/root/.aspnet/
+
+
+    #/var/opt/mssql/data/

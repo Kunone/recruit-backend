@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using CreditcardApi.DataContract;
 using System.Data.SqlClient;
 using Dapper;
+using System;
 
 namespace CreditcardApi.Repository
 {
@@ -25,23 +26,40 @@ namespace CreditcardApi.Repository
                           ,[ExpiryDate]
                       FROM [Customer].[Card]
                       WHERE UserId=@userId and Id=@cardId";
-            using var connection = new SqlConnection(_connString);
-            var card = await connection.QueryFirstAsync<Card>(sql, new { userId, cardId });
-            return card;
+            try
+            {
+                using var connection = new SqlConnection(_connString);
+                var card = await connection.QueryFirstAsync<Card>(sql, new { userId, cardId });
+                return card;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+
         }
 
         public async Task<IEnumerable<Card>> GetCards(string userId)
         {
-            var sql = @"SELECT 
+            var sql = @"SELECT
                           [Name]
                           ,[CardNumber]
                           ,[CVC]
                           ,[ExpiryDate]
                       FROM [Customer].[Card]
                       WHERE UserId=@userId";
-            using var connection = new SqlConnection(_connString);
-            var cards = await connection.QueryAsync<Card>(sql, new { userId });
-            return cards;
+            try
+            {
+                using var connection = new SqlConnection(_connString);
+                var cards = await connection.QueryAsync<Card>(sql, new { userId });
+                return cards;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
         }
 
         public async Task SaveCard(Card card)
@@ -58,9 +76,16 @@ namespace CreditcardApi.Repository
                                ,@CardNumber
                                ,@CVC
                                ,@ExpiryDate)";
-            using var connection = new SqlConnection(_connString);
-            await connection.ExecuteAsync(sql, card);
-
+            try
+            {
+                using var connection = new SqlConnection(_connString);
+                await connection.ExecuteAsync(sql, card);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
 
         }
     }

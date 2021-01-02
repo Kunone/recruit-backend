@@ -1,9 +1,11 @@
+CREATE DATABASE [Recruit-Backend]
+GO
+
 USE [Recruit-Backend]
 GO
 
 CREATE SCHEMA Customer
 Go
-
 
 CREATE TABLE Customer.Profile
 (
@@ -20,9 +22,7 @@ create TABLE Customer.Card
     Name varchar(50) NOT NULL,
     CardNumber varchar(100) NOT NULL,
     CVC varchar(50) NOT NULL,
-    ExpiryDate DATE NOT NULL
+    ExpiryDate DATE NOT NULL,
+    CreatedAt DateTime not null default SYSUTCDATETIME()
 );
 Go
-
-ALTER TABLE Customer.Card
-Add CreatedAt DateTime not null default SYSUTCDATETIME()
