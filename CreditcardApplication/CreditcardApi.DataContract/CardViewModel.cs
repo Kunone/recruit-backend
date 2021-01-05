@@ -23,5 +23,7 @@ namespace CreditcardApi.DataContract
 
         [Required]
         public DateTime ExpiryDate { get; set; }
+
+        public string Id { get; set; }
     }
 }

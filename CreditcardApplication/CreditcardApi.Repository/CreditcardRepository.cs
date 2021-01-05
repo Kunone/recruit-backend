@@ -20,7 +20,8 @@ namespace CreditcardApi.Repository
         public async Task<Card> GetCard(string userId, string cardId)
         {
             var sql = @"SELECT TOP 1
-                          [Name]
+                          [Id]
+                          ,[Name]
                           ,[CardNumber]
                           ,[CVC]
                           ,[ExpiryDate]
@@ -43,7 +44,8 @@ namespace CreditcardApi.Repository
         public async Task<IEnumerable<Card>> GetCards(string userId)
         {
             var sql = @"SELECT
-                          [Name]
+                           [Id]
+                          ,[Name]
                           ,[CardNumber]
                           ,[CVC]
                           ,[ExpiryDate]

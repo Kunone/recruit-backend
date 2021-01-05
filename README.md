@@ -18,8 +18,9 @@ You can test API from `rest api call`
 3. Update `@token` with new token
 4. Request: `save card`
 5. Request: `get all cards` to see if saved card in the response
+6. Request: `get one card` by adding one ID from above response to check this specific card
 
-
+# Original README
 ># Backend
 >Create an API to receive the data captured in the frontend.
 >

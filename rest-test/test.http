@@ -1,11 +1,11 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlcm5hbWUiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkFFRURFMUU5LTM4QTQtNDk2Ri1CMjEzLTRGRTNCNTFFOUNFMyIsIm5iZiI6IjE2MDk2MjQwMTAiLCJleHAiOiIxNjA5NjMxMjEwIn0.JYlQvmtiaYDn8Ocr3XVipjZHmFrQQ1DjrRYtnotJlfo
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlcm5hbWUiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IkFFRURFMUU5LTM4QTQtNDk2Ri1CMjEzLTRGRTNCNTFFOUNFMyIsIm5iZiI6IjE2MDk4MzcxMDQiLCJleHAiOiIxNjA5ODQ0MzA0In0.7hZaQ9xSPY7AJGqKjFXnqGv5INIwHScsbBFvyzPkGOo
 @port = 8080
 
 ### health check
 GET http://localhost:{{port}}/api/healthcheck
 
 ### get one card
-GET http://localhost:{{port}}/api/credit-cards/F10F0BF3-53AA-4920-BE77-77A71E52DCE2
+GET http://localhost:{{port}}/api/credit-cards/016cc562-3096-40c0-ae7e-1f05d8f3b799
 Authorization: bearer {{token}}
 
 ### get all cards
@@ -21,7 +21,7 @@ Authorization: bearer {{token}}
   "name": "kun wang",
   "cardNumber": "0234123412341111",
   "cvc": "021",
-  "expiryDate": "2020-12-21"
+  "expiryDate": "2020-12-22"
 }
 
 ### get token
